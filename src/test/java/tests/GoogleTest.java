@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -37,8 +38,7 @@ public class GoogleTest {
 		driver.get("https://www.google.com/");
 		By searchInput = By.id("lst-ib");
 		driver.findElement(searchInput).sendKeys("Perficient");
-		By searchButton = By.name("btnK");
-		driver.findElement(searchButton).click();
+		driver.findElement(searchInput).sendKeys(Keys.ENTER);
 		String title = driver.getTitle();
 		Assert.assertEquals("Perficient - Google Search", title);
 	}
@@ -47,21 +47,19 @@ public class GoogleTest {
 	public static void test1() {
 		driver.get("https://www.google.com/");
 		By searchInput = By.id("lst-ib");
-		driver.findElement(searchInput).sendKeys("Perficient");
-		By searchButton = By.name("btnK");
-		driver.findElement(searchButton).click();
+		driver.findElement(searchInput).sendKeys("India");
+		driver.findElement(searchInput).sendKeys(Keys.ENTER);
 		String title = driver.getTitle();
-		Assert.assertEquals("Perficient - Google Search1", title);
+		Assert.assertEquals("India - Google Search", title);
 	}
 
 	@Test
 	public static void test2() {
 		driver.get("https://www.google.com/");
 		By searchInput = By.id("lst-ib");
-		driver.findElement(searchInput).sendKeys("Perficient");
-		By searchButton = By.name("btnK");
-		driver.findElement(searchButton).click();
+		driver.findElement(searchInput).sendKeys("Selenium");
+		driver.findElement(searchInput).sendKeys(Keys.ENTER);
 		String title = driver.getTitle();
-		Assert.assertEquals("Perficient - Google Search2", title);
+		Assert.assertEquals("Selenium - Google Search", title);
 	}
 }
